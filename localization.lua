@@ -54,6 +54,9 @@ TB_defaultText_mb = "- My Mocking Blow failed against $tn -";
 TB_defaultText_ls = "- I activated Last Stand! In 20 seconds I will lose $hpHP! -";
 TB_defaultText_sw = "- I activated Shield Wall and will be taking 75% less damage for $sec seconds! -";
 TB_defaultText_lg = "- I activated Lifegiving Gem! In 20 seconds I will lose $hpHP! -";
+TB_defaultText_ds = ".+'s? .+ was dodged%.";
+TB_defaultText_ps = ".+'s? .+ was parried%.";
+TB_defaultText_bs = ".+'s? .+ was blocked%.";
 
 TB_tauntLine = "Your Taunt was resisted by (%w+)";
 TB_growlLine = "Your Growl was resisted by (%w+)";
