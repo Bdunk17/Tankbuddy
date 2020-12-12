@@ -67,9 +67,9 @@ TB_ls = "You gain Last Stand.";
 TB_sw = "You gain Shield Wall.";
 TB_lg = "You gain Gift of Life.";
 TB_salvation = "Salvation";
-TB_ds = ".+'s? .+ was dodged%.";
-TB_ps = ".+'s? .+ was parried%.";
-TB_bs = ".+'s? .+ was blocked%.";
+TB_dodgeLine = ".+'s? .+ was dodged%.";
+TB_parryLine = ".+'s? .+ was parried%.";
+TB_blockedLine = ".+'s? .+ was blocked%.";
 
 TB_output_salvation = "Salvation removed";
 TB_output_startup = " loaded. Type /TB for options.";
