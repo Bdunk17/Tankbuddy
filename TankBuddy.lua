@@ -172,7 +172,7 @@ function TB_OnEvent(event)
 
 	elseif(event =="CHAT_MSG_COMBAT_CREATURE_VS_SELF_MISSES" or event == "CHAT_MSG_COMBAT_HOSTILEPLAYER_MISSES" or event =="CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE")
 		if(englishClass == "Warrior") then
-			if(string.find(arg1, TB_dodgeLine)) and UnitHealth("target") > 97 then   --Checks for a dodges early in an encounter
+			if(string.find(arg1, TB_dodgeLine)) and UnitHealth("target") > 97 then   --Checks for a dodge early in an encounter
 				TBAbility = "Early Dodged"
 			elseif(string.find(arg1, TB_blockLine)) and UnitHealth("target") > 97 then   --Checks for a block early in an encounter
 				TBAbility = "Early block"	
