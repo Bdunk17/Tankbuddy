@@ -170,6 +170,18 @@ function TB_OnEvent(event)
 			end
 		end
 
+	elseif(event =="CHAT_MSG_COMBAT_CREATURE_VS_SELF_MISSES" or event == "CHAT_MSG_COMBAT_HOSTILEPLAYER_MISSES" or event =="CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE")
+		if(englishClass == "Warrior") then
+			if(string.find(arg1, TB_dodgeLine)) and UnitHealth("target") > 97 then   --Checks for a dodges early in an encounter
+				TBAbility = "Early Dodged"
+			elseif(string.find(arg1, TB_blockLine)) and UnitHealth("target") > 97 then   --Checks for a block early in an encounter
+				TBAbility = "Early block"	
+			elseif(string.find(arg1, TB_parryLine)) and UnitHealth("target") > 97 then   --Checks for a dodge early in an encounter
+				TBAbility = "Early Parry"	
+			end
+		end
+	end
+	
 	elseif(event == "CHAT_MSG_SPELL_PERIODIC_SELF_BUFFS") then
 		if (englishClass == "WARRIOR") then
 			if (string.find(arg1, TB_sw)) then
@@ -386,6 +398,12 @@ function TB_Announce(TBAbility, TBTest)
 		elseif (TBAbility == TB_GUI_LG) then
 			TBText = string.gsub(TBSettings[TBSettingsCharRealm].Announcements[TBAbility]["Text"], "$sec", "20");
 			TBText = string.gsub(TBSettings[TBSettingsCharRealm].Announcements[TBAbility]["Text"], "$hp", math.floor((UnitHealthMax("player")/115)*15));
+		elseif (TBAbility == "Early Dodge") then
+			TBText = "Early Dodge watch Threat!" 
+		elseif (TBAbility == "Early Parry") then
+			TBText = "Early parry watch Threat!" 
+		elseif (TBAbility == "Early Block") then
+			TBText = "Early block watch Threat!" 
 		end
 		
 		if (TBTest) then
