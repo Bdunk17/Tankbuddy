@@ -170,17 +170,22 @@ function TB_OnEvent(event)
 			end
 		end
 
-	elseif(event =="CHAT_MSG_COMBAT_CREATURE_VS_SELF_MISSES" or event == "CHAT_MSG_COMBAT_HOSTILEPLAYER_MISSES" or event =="CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE")
-		if(englishClass == "Warrior") then
-			if(string.find(arg1, TB_dodgeLine)) and UnitHealth("target") > 97 then   --Checks for a dodge early in an encounter
-				TBAbility = "Early Dodged"
-			elseif(string.find(arg1, TB_blockLine)) and UnitHealth("target") > 97 then   --Checks for a block early in an encounter
-				TBAbility = "Early block"	
-			elseif(string.find(arg1, TB_parryLine)) and UnitHealth("target") > 97 then   --Checks for a dodge early in an encounter
-				TBAbility = "Early Parry"	
-			end
-		end
-	end
+	elseif(event =="CHAT_MSG_COMBAT_CREATURE_VS_SELF_MISSES") then
+		if (englishClass == "Warrior") then
+			if (string.find(arg1, TB_dodgeLine)) or (string.find(arg1, TB_dodgeLine1)) then
+        			if UnitHealth("target") > 95 then   --Checks for a dodge early in an encounter
+          				TBAbility = "Early dodge"
+        			end
+      			elseif(string.find(arg1, TB_blockLine)) then
+        			if UnitHealth("target") > 95 then --Checks for a block early in an encounter
+					TBAbility = "Early block"	
+       				 end
+			elseif(string.find(arg1, TB_parryLine)) then
+       				if UnitHealth("target") > 97 then   --Checks for a dodge early in an encounter
+         				 TBAbility = "Early parry"	
+        			end
+    			end
+   		 end
 	
 	elseif(event == "CHAT_MSG_SPELL_PERIODIC_SELF_BUFFS") then
 		if (englishClass == "WARRIOR") then
@@ -446,6 +451,7 @@ end
 function TB_register()
 	TankBuddyFrame:RegisterEvent("CHAT_MSG_SPELL_SELF_DAMAGE");
 	TankBuddyFrame:RegisterEvent("CHAT_MSG_SPELL_PERIODIC_SELF_BUFFS");
+	TankBuddyFrame:RegisterEvent("CHAT_MSG_COMBAT_CREATURE_VS_SELF_MISSES");
 	if (TBSettings[TBSettingsCharRealm].Salvstatus) then
 		TankBuddyFrame:RegisterEvent("PLAYER_AURAS_CHANGED");
 		if (TBSettings[TBSettingsCharRealm].SalvDefensiveBearstatus) then
@@ -457,6 +463,7 @@ end
 function TB_unregister()
 	TankBuddyFrame:UnregisterEvent("CHAT_MSG_SPELL_SELF_DAMAGE");
 	TankBuddyFrame:UnregisterEvent("CHAT_MSG_SPELL_PERIODIC_SELF_BUFFS");
+	TankBuddyFrame:UnRegisterEvent("CHAT_MSG_COMBAT_CREATURE_VS_SELF_MISSES");
 	if (not TBSettings[TBSettingsCharRealm].Salvstatus) then
 		TankBuddyFrame:UnregisterEvent("PLAYER_AURAS_CHANGED");
 		TankBuddyFrame:UnregisterEvent("UPDATE_SHAPESHIFT_FORMS");
