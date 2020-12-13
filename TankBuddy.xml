@@ -308,7 +308,34 @@
 					</Anchor>
 				</Anchors>
 			</CheckButton>
-
+			<CheckButton name="TB_Tab9" inherits="TB_TabTemplate" id="9">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="TB_Tab8" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-17"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="TB_Tab10" inherits="TB_TabTemplate" id="10">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="TB_Tab9" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-17"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="TB_Tab8" inherits="TB_TabTemplate" id="11">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="TB_Tab10" relativePoint="BOTTOMLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-17"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			
 			<Frame name="TB_OtherOptions" frameStrata="MEDIUM" toplevel="true" enableMouse="true" movable="true" parent="TankBuddyFrame">
 				<Size>
 					<AbsDimension x="384" y="1"/>
