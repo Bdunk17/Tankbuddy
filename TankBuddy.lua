@@ -37,7 +37,10 @@ function TB_OnLoad()
 			{ TB_GUI_MB, "Interface\\Icons\\Ability_Warrior_PunishingBlow" },
 			{ TB_GUI_LS, "Interface\\Icons\\Spell_Holy_AshesToAshes" },
 			{ TB_GUI_SW, "Interface\\Icons\\Ability_Warrior_ShieldWall" },
-			{ TB_GUI_LG, "Interface\\Icons\\INV_Misc_Gem_Pearl_05" }
+			{ TB_GUI_LG, "Interface\\Icons\\INV_Misc_Gem_Pearl_05" },
+			{ TB_GUI_Dodge, "Interface\\Icons\\Spell_Nature_Invisibilty" }
+			{ TB_GUI_Parry, "" }
+			{ TB_GUI_Block, "" }
 		};
 		TB_TankForm = 2;	--Defensive stance has Shapeshiftform number 2
 		SalvDefensiveBearText:SetText(TB_GUI_SalvationDefensive);
@@ -59,7 +62,7 @@ function TB_OnLoad()
 		SalvDefensiveBearText:Hide();
 	end
 	NUM_TB_TABS = getn(TB_Tabs);
-	MAX_TB_TABS = 8;
+	MAX_TB_TABS = 11;
 	
 	TankBuddyFrame:RegisterEvent("VARIABLES_LOADED");					-- Jump to event function when variables are loaded
 	
